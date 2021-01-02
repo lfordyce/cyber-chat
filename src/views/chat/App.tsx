@@ -1,11 +1,6 @@
 import React from 'react';
-import './App.css';
-// import { v4 as uuid } from 'uuid';
-// import { useStream, useUnary } from './hooks';
-// import { Message, Close, Connect, User } from './proto/service_pb';
-// import { BroadcastClient, Broadcast } from './proto/service_pb_service';
-import { MessagesContainer } from './containers/Messages';
-import { gRPCClients } from './gRPCClients';
+import { MessagesContainer } from '../../containers/Messages';
+import { gRPCClients } from '../../gRPCClients';
 
 const FIXTURES = {
   feed: [
@@ -100,20 +95,6 @@ const NavSection: React.FC<NavSectionProps> = ({
   </div>
 );
 
-// const FeedMessage: React.FC<FeeMessageProps> = ({
-//   message,
-// }: FeeMessageProps) => (
-//   <div className="message">
-//     <div className="message__body">
-//       <div>{message?.content}</div>
-//     </div>
-//     <div className="message__footer">
-//       <span className="message__authoring">{message?.id}</span>
-//       {message?.timestamp}
-//     </div>
-//   </div>
-// );
-
 const ChannelLink: React.FC<IChannelLinkProps> = ({
   id,
   unread,
@@ -156,7 +137,6 @@ const ChannelNav: React.FC<ChannelNavProps> = ({
           }`}
           href="#"
         >
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <ChannelLink {...channel} />
         </a>
       </li>
@@ -199,8 +179,7 @@ const ConversationNav: React.FC<ConversationNavProps> = ({
 }: ConversationNavProps) => (
   <ul className="nav">
     {conversations.map((convo) => (
-      // eslint-disable-next-line react/jsx-key
-      <li className="nav__item">
+      <li key={convo.id} className="nav__item">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           className={`nav__link ${
@@ -302,57 +281,7 @@ const IconShop = MakeIcon(
   <path d="M16.53 7l-.564 2h-15.127l-.839-2h16.53zm-14.013 6h12.319l.564-2h-13.722l.839 2zm5.983 5c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-13.017l.839 2h13.659l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
 );
 
-function App(): JSX.Element {
-  // const [inputValue, setInputValue] = React.useState('');
-  // const [messages, setMessages] = React.useState([
-  //   {
-  //     id: 'fd0cf',
-  //     content:
-  //       'I got a gig lined up in Watson, no biggie. If you prove useful, expect more side gigs coming your way. I need a half-decent netrunner. Hit me up, provide credentials, eddies on completion.',
-  //     dateTime: '2077-10-09T11:04:57Z',
-  //     author: {
-  //       id: 'd12c',
-  //       name: 'V.M. Vargas',
-  //     },
-  //   },
-  // ]);
-
-  // const user = new User();
-  // const id: string = uuid();
-  // user.setId(id);
-  // user.setName('V.M. Vargas');
-  // const conn = new Connect();
-  // conn.setUser(user);
-  // const useStream1 = useStream<Connect, Message>(conn, Broadcast.CreateStream);
-  // const useUnary1 = useUnary<Message, Close>(conn, Broadcast.BroadcastMessage);
-
-  // const addMessage = (text: string) => {
-  //   const newMessage = [
-  //     {
-  //       id: '23443wed',
-  //       content: text,
-  //       dateTime: '2077-10-09T11:04:57Z',
-  //       author: {
-  //         id: '12se3',
-  //         name: 'Bruce',
-  //       },
-  //     },
-  //     ...messages,
-  //   ];
-  //   setMessages(newMessage);
-  // };
-
-  // const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
-  //   setInputValue(event.currentTarget.value);
-  // };
-  //
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   if (!inputValue) return;
-  //   addMessage(inputValue);
-  //   setInputValue('');
-  // };
-
+const App: React.FC = (): React.ReactElement => {
   return (
     <div className="app-container">
       <header className="app-header">
@@ -520,6 +449,6 @@ function App(): JSX.Element {
       </div>
     </div>
   );
-}
+};
 
 export default App;

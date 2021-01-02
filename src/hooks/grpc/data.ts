@@ -23,7 +23,6 @@ export function getUnaryData<
             new Error(`Error ${grpc.Code.NotFound} : No data found`)
           );
         }
-
         return resolve(message.toObject() as ReturnType<TRes['toObject']>);
       },
     });

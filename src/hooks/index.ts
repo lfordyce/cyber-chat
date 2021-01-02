@@ -93,3 +93,32 @@ export function useStream<
 
   return { data, loading, error };
 }
+
+// const useMessageForm = <
+//   TReq extends jspb.Message,
+//   TRes extends grpc.ProtobufMessage
+// >(
+//   request: TReq,
+//   service: grpc.MethodDefinition<TReq, TRes>
+// ) => {
+//   const [data, setData] = React.useState<ReturnType<TRes['toObject']> | null>(
+//     null
+//   );
+//   const [loading, setLoading] = React.useState(false);
+//   const [error, setError] = React.useState(null);
+//
+//   // Get client details
+//   const GrpcClient = React.useContext(GrpcClientContext);
+//
+//   const onChange = React.useCallback(
+//     (event: React.SyntheticEvent) => {
+//       const target = event.target as HTMLInputElement;
+//       setData(null);
+//     },
+//     [setData]
+//   );
+//
+//   const onSubmit = React.useCallback((event: SyntheticEvent) => {
+//     event.preventDefault();
+//   }, []);
+// };

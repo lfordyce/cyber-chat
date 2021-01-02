@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// eslint-disable-next-line import/no-named-as-default
+// import App from './App';
+import IndexRouter from './routes/index';
+import Cursor from './components/Cursor';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IndexRouter />
+    {/* <Cursor /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
