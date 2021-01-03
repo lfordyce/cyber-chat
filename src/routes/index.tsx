@@ -6,6 +6,7 @@ import Login from '../views/login/Login';
 
 type Props<T> = { as: FunctionComponent<T> } & RouteComponentProps<T>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProtectedRoute: FunctionComponent<Props<any>> = ({
   as: Component,
   ...props
@@ -21,6 +22,7 @@ const ProtectedRoute: FunctionComponent<Props<any>> = ({
 };
 
 const ChatHome = lazy(() => import('../views/chat/App'));
+
 const LazyChatHome = lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 5 * 1000)).then(() =>
     Math.floor(Math.random() * 10) >= 4

@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? {
@@ -50,7 +51,10 @@ type AuthPayload = {
 
 export type AuthActions = ActionMap<AuthPayload>[keyof ActionMap<AuthPayload>];
 
-export const authReducer = (state: AuthType, action: AuthActions) => {
+export const authReducer: React.Reducer<AuthType, AuthActions> = (
+  state: AuthType,
+  action: AuthActions
+) => {
   switch (action.type) {
     case Types.Login:
       return {

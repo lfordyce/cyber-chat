@@ -10,8 +10,6 @@ type Props = {
   messages: Message[];
 };
 
-// <div>{message.getContent()}</div>
-
 const FeedMessage: React.FC<FeeMessageProps> = ({
   message,
 }: FeeMessageProps) => (
@@ -32,7 +30,7 @@ const FeedMessage: React.FC<FeeMessageProps> = ({
   </div>
 );
 
-export const Messages: React.FC<Props> = ({ messages }: Props) => {
+const Messages: React.FC<Props> = ({ messages }: Props) => {
   return (
     <div className="channel-feed__body">
       {messages.map((m: Message, idx: number) => (

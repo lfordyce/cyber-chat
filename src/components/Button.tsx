@@ -6,7 +6,7 @@ interface ICyberButtonProps {
   variant: string;
 }
 
-export const Button: React.FC<ICyberButtonProps> = ({
+const Button: React.FC<ICyberButtonProps> = ({
   children,
   type,
   variant,
@@ -20,4 +20,4 @@ export const Button: React.FC<ICyberButtonProps> = ({
   </button>
 );
 
-export default { Button };
+export default Button;

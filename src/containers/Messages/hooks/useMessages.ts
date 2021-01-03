@@ -5,7 +5,7 @@ import { BroadcastClient } from '../../../proto/service_pb_service';
 import { Close, Message, User, Connect } from '../../../proto/service_pb';
 import { AuthStateContext } from '../../../context/Context';
 
-export const useMessages = (client: BroadcastClient) => {
+const useMessages = (client: BroadcastClient) => {
   const [messages, setMessages] = React.useState<Message[]>([]);
   const { state } = React.useContext(AuthStateContext);
 
@@ -26,6 +26,4 @@ export const useMessages = (client: BroadcastClient) => {
   };
 };
 
-export default {
-  useMessages,
-};
+export default useMessages;

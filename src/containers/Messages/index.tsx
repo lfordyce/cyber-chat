@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { MessageForm } from '../../components/MessageForm';
-import { Messages } from '../../components/Messages';
-import { useMessages } from './hooks/useMessages';
-import { useMessageForm } from './hooks/useMessageForm';
+import MessageForm from '../../components/MessageForm';
+import Messages from '../../components/Messages';
+import useMessages from './hooks/useMessages';
+import useMessageForm from './hooks/useMessageForm';
 import { GRPCClients } from '../../gRPCClients';
 
 type Props = {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { useMessageForm } from '../containers/Messages/hooks/useMessageForm';
-import { Button } from './Button';
+import useMessageForm from '../containers/Messages/hooks/useMessageForm';
+import Button from './Button';
 
 type Props = ReturnType<typeof useMessageForm>;
 
-export const MessageForm: React.FC<Props> = ({
+const MessageForm: React.FC<Props> = ({
   message,
   onChange,
   onSubmit,
