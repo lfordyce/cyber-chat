@@ -3,22 +3,24 @@ import { grpc } from '@improbable-eng/grpc-web';
 import { v4 as uuid } from 'uuid';
 import { BroadcastClient } from '../../../proto/service_pb_service';
 import { Close, Message, User, Connect } from '../../../proto/service_pb';
+import { AuthStateContext } from '../../../context/Context';
 
 export const useMessages = (client: BroadcastClient) => {
   const [messages, setMessages] = React.useState<Message[]>([]);
+  const { state } = React.useContext(AuthStateContext);
 
   React.useEffect(() => {
     const user = new User();
-    user.setName('bruce');
-    const id: string = uuid();
-    user.setId(id);
+    user.setName(state.name || 'anonymous');
+    user.setId(state.token || uuid());
     const conn = new Connect();
     conn.setUser(user);
+
     const stream = client.createStream(conn, new grpc.Metadata());
     stream.on('data', (m: Message) => {
-      setMessages((state) => [...state, m]);
+      setMessages((messageState) => [...messageState, m]);
     });
-  }, [client]);
+  }, [client, state]);
   return {
     messages,
   };

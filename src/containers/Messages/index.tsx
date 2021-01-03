@@ -16,10 +16,8 @@ export const MessagesContainer: React.FC<Props> = ({ clients }: Props) => {
 
   return (
     <>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Messages {...messagesState} />
       <div className="channel-feed__footer">
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <MessageForm {...messageFormState} />
       </div>
     </>

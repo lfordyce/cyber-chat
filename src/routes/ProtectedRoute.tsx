@@ -1,6 +1,6 @@
 import { Redirect, RouteComponentProps } from '@reach/router';
 import React, { FunctionComponent } from 'react';
-import { AuthContext } from '../context/Context';
+import { AuthStateContext } from '../context/Context';
 
 type PropsHOC<
   T extends Partial<Record<string, string>>
